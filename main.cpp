@@ -2,6 +2,10 @@
 #include <raylib.h>
 #include "b.h"
 
+#ifdef PLATFORM_WEB
+#include <emscripten/emscripten.h>
+#endif
+
 const int W = 400;
 const int H = 400;
 #define SIZE 10
@@ -10,6 +14,8 @@ int main() {
 
     B board(10,10);
     board.init(5);
+    board.score();
+    board.repr();
     
     InitWindow(W,H,"minesweeper");
     SetTargetFPS(30);
