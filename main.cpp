@@ -11,14 +11,17 @@ const int H = 400;
 #define SIZE 10
 
 B board(10,10);
+Vector2 mousePos = {-1.0f, -1.0f };
 
 void UpdateAndDraw() {
+    mousePos = GetMousePosition();
+    if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT)) {
+        printf("%d %d\n", mousePos.x, mousePos.y);
+    }
+
     BeginDrawing();
     ClearBackground(RAYWHITE);
-
     board.render();
-
-
     EndDrawing();
 }
 
